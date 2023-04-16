@@ -15,5 +15,11 @@ function getTimeOfTimeline(data) {
 function getLocalStorageValue() {
   const currentValue = localStorage.getItem(STORAGE_KEY);
 
-  if (currentValue) player.setCurrentTime(parseFloat(currentValue));
+  player.setCurrentTime(currentValue ? parseFloat(currentValue) : 0);
 }
+
+// function getLocalStorageValue() {
+//   const currentValue = localStorage.getItem(STORAGE_KEY);
+
+//   if (currentValue) player.setCurrentTime(parseFloat(currentValue));
+// }
