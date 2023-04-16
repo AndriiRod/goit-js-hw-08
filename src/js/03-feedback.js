@@ -17,6 +17,10 @@ function getInputsValue(e) {
 
 function formSubmit(e) {
   e.preventDefault();
+  if (formRef.email.value === '' || formRef.message.value === '') {
+    alert('Всі поля повинні бути заповнені!!');
+    return;
+  }
   e.currentTarget.reset();
   localStorage.removeItem(STORAGE_KEY);
   console.log(formData);
@@ -27,7 +31,7 @@ function checkLocalStorage() {
   const localStorageValue = localStorage.getItem(STORAGE_KEY);
   if (localStorageValue) {
     formData = JSON.parse(localStorageValue);
-    formRef.email.value = formData.email;
-    formRef.message.value = formData.message;
+    formRef.email.value = formData.email ? formData.email : '';
+    formRef.message.value = formData.message ? formData.message : '';
   }
 }
